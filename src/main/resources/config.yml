@@ -1,0 +1,46 @@
+#            #
+# DEATH BANS #
+#            #
+#
+# Options:
+#
+# How Long Should The User Be Banned (seconds)
+ban-time: 60
+#
+# Should The Ban Time Increase Each Time A Person Dies? (true/false)
+enable-more-ban-time: false
+# If The Above Is Enabled, How Much Time Should Be Added For Each Death? (seconds)
+additional-ban-time: 60
+#
+# Should The Player Be Permanently Banned From The Server? (true/false)
+enable-permanent-bans: false
+# If The Above Is Enabled, How Many Deaths Should They Be Allowed Until Permanently Banned? (Number e.g. 6)
+permanent-ban-after: 5
+#
+# Should The Server Broadcast When Someone Dies? (true/false) NOTE: this will disable the default death messages.
+broadcast: true
+#
+# Custom Ban Message (text, use '\n' to make a new line, color codes work!)
+#
+# Placeholders:
+# {time_of_ban} - displays player unban time in HH:MM:SS format. e.g. 03:53:25
+# {date_of_ban} - displays player unban date in DD-MM-YYYY format. e.g. 09-01-2021
+#
+ban-message: "&4&lYOU HAVE DIED\n\n&r&fYou must be bad to die :P\n\n&c&lYou will be unbanned at {time_of_unban} on {date_of_unban}"
+#
+perm-ban-message: "&4&lYOU HAVE DIED\n\n&r&fYou have no lives remaining, FeelsBadMan.\n\n&c&lYour ban is permanent!"
+#
+# If The Above Is True, What Message Would You Want Broadcasted? (text, color codes work!)
+#
+# Placeholders:
+# {player} - displays player name.
+# {deaths_total} - displays total deaths of player.
+# {deaths_remaining} - displays how many deaths before ban.
+#
+# Used When 'enable-permanent-bans' Is False.
+broadcast-text: "&4{player} &chas died, they've died &4{deaths_total} &ctime(s) so far!"
+# Used When 'enable-permanent-bans' is True And The Player Still Has Lives.
+broadcast-text-perm: "&4{player} &chas died, they've got &4{deaths_remaining} &clive(s) left!"
+# Used When 'enable-permanent-bans' Is True And The Player Has Ran Out Of Lives.
+broadcast-text-perm-banned: "&4{player} &fhas died, they've ran out of lives which means they are now &4&lPermanently Banned!"
+#
