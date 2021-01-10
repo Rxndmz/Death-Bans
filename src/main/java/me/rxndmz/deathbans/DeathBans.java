@@ -20,27 +20,6 @@ public final class DeathBans extends JavaPlugin {
     public Logger logger = getLogger();
     public DataManager data;
 
-    @Override
-    public void onEnable() {
-        /*
-        Generating config.yml
-         */
-        getConfig().options().copyDefaults();
-        saveDefaultConfig();
-
-        // Starting DataManager
-        this.data = new DataManager(this);
-
-        /*
-        Registering Events
-         */
-        pm.registerEvents(new DeathManager(this), this);
-        pm.registerEvents(this.data, this);
-
-        // Adding recipe to server
-        Bukkit.addRecipe(getReviveRecipe());
-    }
-
     /*
     Revive Item Recipe.
      */
@@ -70,6 +49,27 @@ public final class DeathBans extends JavaPlugin {
         recipe.shape(" N "," E "," N ");
 
         return recipe;
+    }
+
+    @Override
+    public void onEnable() {
+        /*
+        Generating config.yml
+         */
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
+
+        // Starting DataManager
+        this.data = new DataManager(this);
+
+        /*
+        Registering Events
+         */
+        pm.registerEvents(new DeathManager(this), this);
+        pm.registerEvents(this.data, this);
+
+        // Adding recipe to server
+        Bukkit.addRecipe(getReviveRecipe());
     }
 
     @Override
