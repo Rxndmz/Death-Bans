@@ -27,8 +27,7 @@ public class DeathManager implements Listener {
         String sss = ss.replace("{deaths_total}", this.plugin.data.getConfig().getString("players." + player.getUniqueId().toString() + ".deaths"));
         String ssss = sss.replace("{deaths_remaining}", String.valueOf(x));
         String sssss = ssss.replace("{time_of_unban}", time);
-        String msg = sssss.replace("{date_of_unban}", date);
-        return msg;
+        return sssss.replace("{date_of_unban}", date);
     }
 
     private void annouceDeath(Player playerThatDied, boolean isPerm, String time, String date) {
@@ -63,14 +62,14 @@ public class DeathManager implements Listener {
             if (player.getHealth() - e.getFinalDamage() < 0) {
                 // Player has Died //
                 addDeath(player);
-                String reason = "";
+                String reason;
                 String bumper = org.apache.commons.lang.StringUtils.repeat("\n", 35);
                 // Getting the date that the player will be banned
                 Calendar cal = Calendar.getInstance();
                 cal.setTime(new Date());
                 if (this.plugin.getConfig().getBoolean("enable-more-ban-time")) {
                     System.out.println(plugin.getConfig().getInt("ban-time") + (plugin.getConfig().getInt("additional-ban-time") * (plugin.data.getConfig().getInt("players." + player.getUniqueId().toString() + ".deaths") + 1)));
-                    int x = plugin.getConfig().getInt("ban-time") + (plugin.getConfig().getInt("additional-ban-time") * (plugin.data.getConfig().getInt("players." + player.getUniqueId().toString() + ".deaths") + 1));
+                    int x = plugin.getConfig().getInt("ban-time") + (plugin.getConfig().getInt("additional-ban-time") * (plugin.data.getConfig().getInt("players." + player.getUniqueId().toString() + ".deaths")));
                     cal.add(Calendar.SECOND, x);
                 } else {
                     cal.add(Calendar.SECOND, plugin.getConfig().getInt("ban-time"));
