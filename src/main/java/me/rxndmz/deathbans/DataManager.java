@@ -65,12 +65,19 @@ public class DataManager implements Listener {
     public void onPlayerJoin(PlayerJoinEvent e) {
         Player player = e.getPlayer();
         int deaths = 0;
+        int tokens = 0;
 
+        // Setting up deaths
         if (this.plugin.data.getConfig().contains("players." + player.getUniqueId().toString() + ".deaths"))
             deaths = this.plugin.data.getConfig().getInt("players." + player.getUniqueId().toString() + ".deaths");
-        if (deaths != 0)
-            this.plugin.data.getConfig().set("players." + player.getUniqueId().toString() + ".deaths", deaths + 1);
         this.plugin.data.getConfig().set("players." + player.getUniqueId().toString() + ".deaths", deaths);
+
+        // Settings up tokens
+        if (this.plugin.data.getConfig().contains("players." + player.getUniqueId().toString() + ".tokens"))
+            tokens = this.plugin.data.getConfig().getInt("players." + player.getUniqueId().toString() + ".tokens");
+        this.plugin.data.getConfig().set("players." + player.getUniqueId().toString() + ".tokens", tokens);
+
+        // Saving the config
         this.plugin.data.saveConfig();
     }
 
