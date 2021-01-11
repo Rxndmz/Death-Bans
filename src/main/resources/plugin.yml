@@ -4,3 +4,8 @@ main: me.rxndmz.deathbans.DeathBans
 api-version: 1.16
 authors: [ Rxndmz ]
 website: rxndmz.me
+commands:
+  dbrevive:
+    aliases: dbr
+  dbtokens:
+    aliases: dbt
